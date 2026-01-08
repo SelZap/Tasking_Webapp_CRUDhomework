@@ -1,0 +1,537 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ===========================
+   AUTH PAGES (Login/Register)
+   =========================== */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated stars background */
+.auth-page::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 90px 10px, rgba(255,255,255,0.6), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars 60s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* Forest silhouette effect */
+.auth-page::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(15, 32, 39, 0.9) 0%, transparent 100%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath fill='%23051015' d='M0 120L50 100L100 110L150 95L200 105L250 90L300 100L350 95L400 105L450 100L500 110L550 95L600 105L650 100L700 110L750 95L800 105L850 100L900 110L950 95L1000 105L1050 100L1100 110L1150 95L1200 105V120H0Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: bottom;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.form-container h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.form-container input[type="text"]::placeholder,
+.form-container input[type="email"]::placeholder,
+.form-container input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    outline: none;
+    border-color: #4ade80;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Auth buttons */
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Primary button (Login/Register submit) */
+input[type="submit"].btn {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: #ffffff;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="submit"].btn:hover {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+/* Secondary button */
+a.btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+a.btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===========================
+   WELCOME PAGE (index.php)
+   =========================== */
+body.welcome-page {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a2332 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient orbs */
+.welcome-page::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.welcome-page::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -150px;
+    left: -150px;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+.welcome-container {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 30px;
+    padding: 60px 80px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-page h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.welcome-page p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.welcome-page .username {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+/* ===========================
+   DASHBOARD (Table + Modals)
+   =========================== */
+.dashboard-page {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a2332 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Table Container */
+.table-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    overflow: hidden;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+thead {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
+}
+
+th {
+    padding: 18px 16px;
+    text-align: left;
+    font-size: 13px;
+    color: #4ade80;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(74, 222, 128, 0.3);
+}
+
+td {
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    background: rgba(74, 222, 128, 0.05);
+}
+
+/* Action buttons in table */
+.edit-btn, .delete-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 8px;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.edit-btn {
+    background: #4ade80;
+    color: #0a0e27;
+}
+
+.edit-btn:hover {
+    background: #22c55e;
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+}
+
+.delete-btn {
+    background: rgba(71, 85, 105, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(100, 116, 139, 0.5);
+}
+
+.delete-btn:hover {
+    background: rgba(100, 116, 139, 0.7);
+    color: #ffffff;
+}
+
+/* Dashboard action buttons */
+.add-btn, .back-btn {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: #ffffff;
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.back-btn {
+    background: rgba(71, 85, 105, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(100, 116, 139, 0.5);
+}
+
+.back-btn:hover {
+    background: rgba(100, 116, 139, 0.7);
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 35px;
+    border-radius: 20px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    position: relative;
+}
+
+.modal-content h2 {
+    color: #4ade80;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.modal-content label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content textarea:focus {
+    outline: none;
+    border-color: #4ade80;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+}
+
+.modal-content textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.modal-content input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-content input[type="submit"]:hover {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(74, 222, 128, 0.4);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.close:hover {
+    color: #4ade80;
+}
+
+/* Delete Confirmation Modal */
+.delete-modal-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.delete-modal-content h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.delete-modal-content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.confirm-delete-btn {
+    background: #4ade80;
+    color: #0a0e27;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-delete-btn:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(74, 222, 128, 0.4);
+}
+
+.cancel-delete-btn {
+    background: rgba(71, 85, 105, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 1px solid rgba(100, 116, 139, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-delete-btn:hover {
+    background: rgba(100, 116, 139, 0.7);
+}
+
+/* Center buttons container */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
